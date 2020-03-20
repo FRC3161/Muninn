@@ -38,22 +38,22 @@ class Homescreen extends Component {
         return(
             <View>
                 <View style={{marginLeft: "5%"}}>
-                    <Text style={styles.title}> General {"\n"} Information </Text>
+                    <Text style={styles.title}> Match {"\n"} Information </Text>
                 </View>
                 <View style={{marginLeft: "5%"}}>
                     <Text style={styles.text}> Scouter's Name </Text>
-                    <TextInput style={styles.input}></TextInput>
+                    <TextInput style={styles.input} onChangeText={(name) => this.setState({name})}></TextInput>
                     <Text style={styles.text}> Match Number # </Text>
-                    <TextInput style={styles.input}></TextInput>
+                    <TextInput style={styles.input} onChangeText={(match_number) => this.setState({match_number})}></TextInput>
                     <Text style={styles.text}> Team Number # </Text>
-                    <TextInput style={styles.input}></TextInput>
+                    <TextInput style={styles.input} onChangeText={(team_number) => this.setState({team_number})}></TextInput>
                     <Text style={styles.text}> Alliance Colour </Text>
                     <View style={{flexDirection: "row", marginTop: 5, marginLeft: "2%"}}>
                         <View style={{paddingRight: 25}}>
-                            <Button title="Red" color="#CC1717"/>
+                            <Button title="Red" color="#CC1717" onPress={() => this.setState({[alliance]: "red"})} />
 
                         </View>
-                        <Button title="Blue" color="#174DCC"/>
+                        <Button title="Blue" color="#174DCC"onPress={() => this.setState({[alliance]: "blue"})} />
                     </View>
                 </View>
                 <View style={{width: "90%", marginLeft: "5%", marginTop: 25}}>
