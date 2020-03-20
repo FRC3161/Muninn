@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { Text, View, StyleSheet, TextInput, Button } from 'react-native'
-import Slider from '@react-native-community/slider';
+import { Slider } from 'react-native';
 
 const styles = StyleSheet.create({
     title: {
@@ -19,6 +19,14 @@ const styles = StyleSheet.create({
         color: "#FFFFFF"
     },
 
+    slidertext: {
+        fontFamily: "Roboto",
+        fontSize: 18, // Todo
+        textAlign: "left",
+        marginTop: 6,
+        color: "#FFFFFF"
+    },
+
     input: {
         height: 25,
         borderTopWidth: 0,
@@ -31,13 +39,28 @@ const styles = StyleSheet.create({
         color: "#FFFFFF"
     },
 
+    slider: {
+        width: 200,
+        height: 40
+    }
+
 })
 
 class Auto extends Component {
+
+    state = {preload: 0};
+
     render() {
         return(
             <View style={{marginLeft: "5%"}}>
                 <Text style={styles.title}> Autonomous {"\n"} Period </Text>
+                <View>
+                    <Text style={styles.text}>Preloaded Cells</Text>
+                    <View style={{flexDirection: 'row'}}>
+                        <Slider style={styles.slider} minimumValue={0} maximumValue={3} step={1} minimumTrackTintColor='#B3861B' maximumTrackTintColor='#B3861B' onValueChange={(preload_number) => this.setState({preload: preload_number})} thumbTintColor='#B3861B' />
+                        <Text style={styles.slidertext}>{this.state.preload}</Text>
+                    </View>
+                </View>
             </View>
         )
     }
