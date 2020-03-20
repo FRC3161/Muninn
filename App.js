@@ -43,8 +43,19 @@ function AutoScreen({navigation}) {
   )
 }
 
-function TeleopScreen() {
-    return <Tele/>;
+function TeleopScreen({navigation}) {
+    return (
+        <View>
+            <Tele/>
+            <View style={{width: "90%", marginLeft: "5%", marginTop: 40}}>
+                <Button title="Tap here when the robot proceeds to climb" color="#B3861B" onPress={() => navigation.navigate("Step 4")} />
+            </View>
+        </View>
+    )
+}
+
+function Endgame() {
+    return null;
 }
 
 function App() {
@@ -54,6 +65,7 @@ function App() {
         <Stack.Screen name="Step 1" component={Home}/>
         <Stack.Screen name="Step 2" component={AutoScreen}/>
         <Stack.Screen name="Step 3" component={TeleopScreen}/>
+        <Stack.Screen name="Step 4" component={Endgame}/>
       </Stack.Navigator>
     </NavigationContainer>
   )
