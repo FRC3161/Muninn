@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
 
 class Homescreen extends Component {
 
-    state = {name, match_number, team_number, alliance};
+    state = {name: "", match_number: 0, team_number: 0, alliance: ""};
 
     render() {
         return(
