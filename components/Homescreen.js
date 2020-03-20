@@ -44,11 +44,11 @@ class Homescreen extends Component {
                 </View>
                 <View style={{marginLeft: "5%"}}>
                     <Text style={styles.text}> Scouter's Name </Text>
-                    <TextInput style={styles.input} onChangeText={(scouter_name) => this.setState({name: scouter_name})}></TextInput>
+                    <TextInput style={styles.input} onChangeText={(scouter_name) => this.setState({name: scouter_name})}/>
                     <Text style={styles.text}> Match Number # </Text>
-                    <TextInput style={styles.input} onChangeText={(match_number) => this.setState({match_number: match_number})}></TextInput>
+                    <TextInput style={styles.input} onChangeText={(match_number) => this.setState({match_number: match_number})}/>
                     <Text style={styles.text}> Team Number # </Text>
-                    <TextInput style={styles.input} onChangeText={(team_number) => this.setState({team_number: team_number})}></TextInput>
+                    <TextInput style={styles.input} onChangeText={(team_number) => this.setState({team_number: team_number})}/>
                     <Text style={styles.text}> Alliance Colour </Text>
                     <View style={{flexDirection: "row", marginTop: 5, marginLeft: "2%"}}>
                         <View style={{paddingRight: 25}}>
