@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Text, View, StyleSheet, TextInput, Button } from 'react-native'
+import { Text, View, StyleSheet } from 'react-native'
 import NumericInput from 'react-native-numeric-input';
 import { Slider } from 'react-native';
 
