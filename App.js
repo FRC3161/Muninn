@@ -23,15 +23,27 @@ function Home({navigation}) {
     return (
       <View>
         <Homescreen />
-        <View style={{ width: "90%", marginLeft: "5%", marginTop: 25 }}>
+        <View style={{ width: "90%", marginLeft: "5%", marginTop: 25}}>
           <Button title="Next" color="#B3861B" onPress={() => navigation.navigate("Step 2")} />
         </View>
       </View>
     )
 }
 
-function AutoScreen() {    
-  return <Auto/>
+function AutoScreen({navigation}) {
+  return (
+      <View>
+          <Auto/>
+          <View style={{ width: "90%", marginLeft: "5%", marginTop: 25}}>
+              <Button title="Autonomous Period Done: Next" color="#B3861B" onPress={() => navigation.navigate("Step 3")} />
+          </View>
+      </View>
+
+  )
+}
+
+function TeleopScreen() {
+    return null;
 }
 
 function App() {
@@ -40,6 +52,7 @@ function App() {
       <Stack.Navigator>
         <Stack.Screen name="Step 1" component={Home}/>
         <Stack.Screen name="Step 2" component={AutoScreen}/>
+        <Stack.Screen name="Step 3" component={TeleopScreen}/>
       </Stack.Navigator>
     </NavigationContainer>
   )
