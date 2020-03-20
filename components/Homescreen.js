@@ -58,9 +58,6 @@ class Homescreen extends Component {
                         <Button title="Blue" color="#174DCC"onPress={() => this.setState({[alliance]: "blue"})} />
                     </View>
                 </View>
-                <View style={{width: "90%", marginLeft: "5%", marginTop: 25}}>
-                    <Button title="Next" color="#B3861B"/>
-                </View>
             </View>
         )
     }

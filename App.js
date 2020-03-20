@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View } from 'react-native';
+import { View, Button } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import Homescreen from "./components/Homescreen";
@@ -19,16 +19,19 @@ const MyTheme = {
   }
 }
 
-class Home extends Component {
-  render() {
-    return <Homescreen/>
-  }
+function Home({navigation}) {
+    return (
+      <View>
+        <Homescreen />
+        <View style={{ width: "90%", marginLeft: "5%", marginTop: 25 }}>
+          <Button title="Next" color="#B3861B" onPress={() => navigation.navigate("Step 2")} />
+        </View>
+      </View>
+    )
 }
 
-class AutoScreen extends Component {
-  render() {
-    return <Auto/>
-  }
+function AutoScreen() {    
+  return <Auto/>
 }
 
 function App() {
