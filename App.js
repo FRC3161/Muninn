@@ -4,6 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import Homescreen from "./components/Homescreen";
 import Auto from "./components/Auto";
+import Tele from "./components/Teleop.js";
 
 const Stack = createStackNavigator();
 const name = "Scouting App";
@@ -43,7 +44,7 @@ function AutoScreen({navigation}) {
 }
 
 function TeleopScreen() {
-    return null;
+    return <Tele/>;
 }
 
 function App() {
