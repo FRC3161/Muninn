@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { Text, View, StyleSheet, TextInput, Button } from 'react-native'
+import Slider from '@react-native-community/slider';
 
 const styles = StyleSheet.create({
     title: {
@@ -35,8 +36,8 @@ const styles = StyleSheet.create({
 class Auto extends Component {
     render() {
         return(
-            <View>
-                <Text style={styles.title}> Autonomous Period </Text>
+            <View style={{marginLeft: "5%"}}>
+                <Text style={styles.title}> Autonomous {"\n"} Period </Text>
             </View>
         )
     }
