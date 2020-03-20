@@ -5,6 +5,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import Homescreen from "./components/Homescreen";
 import Auto from "./components/Auto";
 import Tele from "./components/Teleop.js";
+import Endgame from "./components/Endgame.js";
 
 const Stack = createStackNavigator();
 const name = "Scouting App";
@@ -54,7 +55,20 @@ function TeleopScreen({navigation}) {
     )
 }
 
-function Endgame() {
+function EndgameScreen({navigation}) {
+    return (
+        <View>
+            <Endgame/>
+            <View>
+                <View style={{width: "90%", marginLeft: "5%", marginTop: 40}}>
+                    <Button title="Match is done" color="#B3861B" onPress={() => navigation.navigate("Step 5")} />
+                </View>
+            </View>
+        </View>
+        )
+}
+
+function QRScreen() {
     return null;
 }
 
@@ -65,7 +79,8 @@ function App() {
         <Stack.Screen name="Step 1" component={Home}/>
         <Stack.Screen name="Step 2" component={AutoScreen}/>
         <Stack.Screen name="Step 3" component={TeleopScreen}/>
-        <Stack.Screen name="Step 4" component={Endgame}/>
+        <Stack.Screen name="Step 4" component={EndgameScreen}/>
+        <Stack.Screen name="Step 5" component={QRScreen}/>
       </Stack.Navigator>
     </NavigationContainer>
   )
