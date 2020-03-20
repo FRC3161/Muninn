@@ -34,6 +34,8 @@ const styles = StyleSheet.create({
 
 class Homescreen extends Component {
 
+    state = {name, match_number, team_number, alliance};
+
     render() {
         return(
             <View>
@@ -62,6 +64,23 @@ class Homescreen extends Component {
             </View>
         )
     }
+
+    getName() {
+        return this.state.name;
+    }
+
+    getTeam() {
+        return this.state.team_number;
+    }
+
+    getMatch() {
+        return this.state.match_number;
+    }
+
+    getAlliance() {
+        return this.state.alliance;
+    }
+
 }
 
 export default Homescreen;
