@@ -1,9 +1,11 @@
 import React, {Component} from 'react';
 import { Text, View, StyleSheet, TextInput, Button } from 'react-native';
+import { SharedState } from 'react-native-shared-state';
+import {ScoutingDataState} from "../App";
 
 const styles = StyleSheet.create({
     title: {
-        fontFamily: "Roboto",
+        //fontFamily: "Roboto",
         fontSize: 42,
         textAlign: "left",
         marginTop: 25,
@@ -11,7 +13,7 @@ const styles = StyleSheet.create({
     },
 
     text: {
-        fontFamily: "Roboto",
+        //fontFamily: "Roboto",
         fontSize: 24, // Todo
         textAlign: "left",
         marginTop: 30,
@@ -34,6 +36,14 @@ const styles = StyleSheet.create({
 
 class Homescreen extends Component {
 
+    componentDidMount() {
+        ScoutingDataState.register(this, ["name", "match_number", "team_number", "alliance"]);
+    }
+
+    componentWillUnmount() {
+        ScoutingDataState.unregister(this);
+    }
+
     state = {name: "", match_number: 0, team_number: 0, alliance: ""};
 
     render() {
@@ -44,18 +54,18 @@ class Homescreen extends Component {
                 </View>
                 <View style={{marginLeft: "5%"}}>
                     <Text style={styles.text}> Scouter's Name </Text>
-                    <TextInput style={styles.input} onChangeText={(scouter_name) => this.setState({name: scouter_name})}/>
+                    <TextInput style={styles.input} onChangeText={(scouter_name) => ScoutingDataState.setState({name: scouter_name})}/>
                     <Text style={styles.text}> Match Number # </Text>
-                    <TextInput style={styles.input} keyboardType={"numeric"} onChangeText={(match_number) => this.setState({match_number: match_number})}/>
+                    <TextInput style={styles.input} keyboardType={"numeric"} onChangeText={(match_number) => ScoutingDataState.setState({match_number: match_number})}/>
                     <Text style={styles.text}> Team Number # </Text>
-                    <TextInput style={styles.input} keyboardType={"numeric"} onChangeText={(team_number) => this.setState({team_number: team_number})}/>
+                    <TextInput style={styles.input} keyboardType={"numeric"} onChangeText={(team_number) => ScoutingDataState.setState({team_number: team_number})}/>
                     <Text style={styles.text}> Alliance Colour </Text>
                     <View style={{flexDirection: "row", marginTop: 5, marginLeft: "2%"}}>
                         <View style={{paddingRight: 25}}>
-                            <Button title="Red" color="#CC1717" onPress={() => this.setState({alliance: "red"})} />
+                            <Button title="Red" color="#CC1717" onPress={() => ScoutingDataState.setState({alliance: "red"})} />
 
                         </View>
-                        <Button title="Blue" color="#174DCC"onPress={() => this.setState({alliance: "blue"})} />
+                        <Button title="Blue" color="#174DCC"onPress={() => ScoutingDataState.setState({alliance: "blue"})} />
                     </View>
                 </View>
             </View>

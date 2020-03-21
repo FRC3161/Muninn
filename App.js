@@ -2,13 +2,19 @@ import React, { Component } from 'react';
 import { View, Button } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import { SharedState } from 'react-native-shared-state';
 import Homescreen from "./components/Homescreen";
 import Auto from "./components/Auto";
 import Tele from "./components/Teleop.js";
 import Endgame from "./components/Endgame.js";
+import QR from "./components/QR.js";
 
 const Stack = createStackNavigator();
-const name = "Scouting App";
+
+export const ScoutingDataState = new SharedState({
+    name: "", match_number: 0, team_number: 0, alliance: "", preload: 0, highPortAuto: 0, lowPortAuto: 0, missedAuto: 0, highPortTele: 0, lowPortTele: 0,
+    missedTele: 0, colourWheelDone: false, colourWheelLanded: false, colourWheelWasRotated: false, climb: "", balance: "", num_climbs: 0, notes: ""
+});
 
 const MyTheme = {
   dark: true,
@@ -69,7 +75,7 @@ function EndgameScreen({navigation}) {
 }
 
 function QRScreen() {
-    return null;
+    return <QR/>;
 }
 
 function App() {

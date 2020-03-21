@@ -3,10 +3,11 @@ import { Text, View, StyleSheet } from 'react-native'
 import NumericInput from 'react-native-numeric-input';
 import { Dropdown } from 'react-native-material-dropdown';
 import CheckBox from 'react-native-check-box';
+import {ScoutingDataState} from "../App";
 
 const styles = StyleSheet.create({
     title: {
-        fontFamily: "Roboto",
+        //fontFamily: "Roboto",
         fontSize: 30,
         textAlign: "left",
         marginTop: 25,
@@ -14,7 +15,7 @@ const styles = StyleSheet.create({
     },
 
     text: {
-        fontFamily: "Roboto",
+        //fontFamily: "Roboto",
         fontSize: 22, // Todo
         textAlign: "left",
         marginTop: 30,
@@ -22,7 +23,7 @@ const styles = StyleSheet.create({
     },
 
     slidertext: {
-        fontFamily: "Roboto",
+        //fontFamily: "Roboto",
         fontSize: 18, // Todo
         textAlign: "left",
         marginTop: 6,
@@ -50,7 +51,13 @@ const styles = StyleSheet.create({
 
 class Teleop extends Component {
 
-    state = {highScored: 0, lowScored: 0, missed: 0, colourWheelDone: false, landed: false, wasRotated: false};
+    componentDidMount() {
+        ScoutingDataState.register(this, ["highPortTele", "lowPortTele", "missedTele", "colourWheelDone", "colourWheelLanded", "colourWheelWasRotated"]);
+    }
+
+    componentWillUnmount() {
+        ScoutingDataState.unregister(this);
+    }
 
     render() {
         //var attitudes = ["Defensive", "Scoring Goals", "Offensive Scoring", "Failed to Perform"];
@@ -84,15 +91,15 @@ class Teleop extends Component {
                             </View>
                         </View>
                         <View style={{flexDirection: "row", marginTop: 5, marginLeft: "6%"}}>
-                            <NumericInput leftButtonBackgroundColor={"#B3861B"} rightButtonBackgroundColor={"#B3861B"} borderColor={"#B3861B"} textColor={'white'} editable={false} rounded={true} minValue={0} onChange={(high) => this.setState({highScored: high})}/>
+                            <NumericInput leftButtonBackgroundColor={"#B3861B"} rightButtonBackgroundColor={"#B3861B"} borderColor={"#B3861B"} textColor={'white'} editable={false} rounded={true} minValue={0} onChange={(high) => ScoutingDataState.setState({highPortTele: high})}/>
                             <View style={{marginLeft: "20%"}}>
-                                <NumericInput leftButtonBackgroundColor={"#B3861B"} rightButtonBackgroundColor={"#B3861B"} borderColor={"#B3861B"} textColor={'white'} editable={false} rounded={true} minValue={0} onChange={(low) => this.setState({lowScored: low})}/>
+                                <NumericInput leftButtonBackgroundColor={"#B3861B"} rightButtonBackgroundColor={"#B3861B"} borderColor={"#B3861B"} textColor={'white'} editable={false} rounded={true} minValue={0} onChange={(low) => ScoutingDataState.setState({lowPortTele: low})}/>
                             </View>
                         </View>
                         <View>
                             <Text style={styles.text}> Missed (Both) </Text>
                             <View style={{paddingTop: 5, marginLeft: "5%"}}>
-                                <NumericInput leftButtonBackgroundColor={"#B3861B"} rightButtonBackgroundColor={"#B3861B"} borderColor={"#B3861B"} textColor={'white'} editable={false} rounded={true} minValue={0} onChange={(missed) => this.setState({missed: missed})}/>
+                                <NumericInput leftButtonBackgroundColor={"#B3861B"} rightButtonBackgroundColor={"#B3861B"} borderColor={"#B3861B"} textColor={'white'} editable={false} rounded={true} minValue={0} onChange={(missed) => ScoutingDataState.setState({missedTele: missed})}/>
                             </View>
                         </View>
                         <View>
@@ -102,11 +109,11 @@ class Teleop extends Component {
                                     style={{flex: 3, padding: 10}}
                                     leftTextStyle={{color: "white"}}
                                     onClick={() => {
-                                        this.setState({
-                                            colourWheelDone:!this.state.colourWheelDone
+                                        ScoutingDataState.setState({
+                                            colourWheelDone:!ScoutingDataState.state.colourWheelDone
                                         })
                                     }}
-                                    isChecked={this.state.colourWheelDone}
+                                    isChecked={ScoutingDataState.state.colourWheelDone}
                                     leftText={"Colour Wheel Done"}
                                     checkBoxColor={"#B3861B"}
                                 />
@@ -114,11 +121,11 @@ class Teleop extends Component {
                                     style={{flex: 3, padding: 10}}
                                     leftTextStyle={{color: "white"}}
                                     onClick={() => {
-                                        this.setState({
-                                            landed:!this.state.landed
+                                        ScoutingDataState.setState({
+                                            colourWheelLanded:!ScoutingDataState.state.colourWheelLanded
                                         })
                                     }}
-                                    isChecked={this.state.landed}
+                                    isChecked={ScoutingDataState.state.colourWheelLanded}
                                     leftText={"Landed on Colour"}
                                     checkBoxColor={"#B3861B"}
                                     />
@@ -127,11 +134,11 @@ class Teleop extends Component {
                                 style={{flex: 3, padding: 10}}
                                 leftTextStyle={{color: "white"}}
                                 onClick={() => {
-                                    this.setState({
-                                        wasRotated:!this.state.wasRotated
+                                    ScoutingDataState.setState({
+                                        colourWheelWasRotated:!ScoutingDataState.state.colourWheelWasRotated
                                     })
                                 }}
-                                isChecked={this.state.wasRotated}
+                                isChecked={ScoutingDataState.state.colourWheelWasRotated}
                                 leftText={"Was Rotated \n 3-5 Times"}
                                 checkBoxColor={"#B3861B"}
                                 />

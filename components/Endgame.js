@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
 import { Text, View, StyleSheet, Slider, TextInput } from 'react-native'
 import { Dropdown } from 'react-native-material-dropdown';
+import {ScoutingDataState} from "../App";
 
 const styles = StyleSheet.create({
     title: {
-        fontFamily: "Roboto",
+        //fontFamily: "Roboto",
         fontSize: 42,
         textAlign: "left",
         marginTop: 25,
@@ -12,7 +13,7 @@ const styles = StyleSheet.create({
     },
 
     text: {
-        fontFamily: "Roboto",
+        //fontFamily: "Roboto",
         fontSize: 24, // Todo
         textAlign: "left",
         marginTop: 30,
@@ -47,7 +48,13 @@ const styles = StyleSheet.create({
 
 class Endgame extends Component {
 
-    state = {climb: "", balance: "", num_climbs: 0, notes: ""};
+    componentDidMount() {
+        ScoutingDataState.register(this, ["climb", "balance", "num_climbs", "notes"]);
+    }
+
+    componentWillUnmount() {
+        ScoutingDataState.unregister(this);
+    }
 
     render() {
 
@@ -73,7 +80,7 @@ class Endgame extends Component {
                         <Text style={styles.text}> Climbed? </Text>
                         <View style={{flexDirection: "row"}}>
                             <View style={{minWidth: "40%", maxWidth: "40%"}}>
-                                <Dropdown label={"Climb"} itemColor={"#000000"} baseColor={"#FFFFFF"} data={climbs} onChangeText={(c) => this.setState({climb: c})} />
+                                <Dropdown label={"Climb"} itemColor={"#000000"} baseColor={"#FFFFFF"} data={climbs} onChangeText={(c) => ScoutingDataState.setState({climb: c})} />
                             </View>
                             <View style={{marginLeft: 30}}>
                                 <Text style={styles.text}> Robots Climbed </Text>
@@ -82,17 +89,17 @@ class Endgame extends Component {
                         <View style={{flexDirection: "row"}}>
                             <Text style={styles.text}> Balanced? </Text>
                             <View style={{marginTop: 20, marginLeft: "14%", flexDirection: "row"}}>
-                                <Text style={styles.slidertext}>{this.state.num_climbs}</Text>
-                                <Slider style={styles.slider} minimumValue={0} maximumValue={3} step={1} minimumTrackTintColor='#B3861B' maximumTrackTintColor='#B3861B' onValueChange={(n) => this.setState({num_climbs: n})} thumbTintColor='#B3861B' />
+                                <Text style={styles.slidertext}>{ScoutingDataState.state.num_climbs}</Text>
+                                <Slider style={styles.slider} minimumValue={0} maximumValue={3} step={1} minimumTrackTintColor='#B3861B' maximumTrackTintColor='#B3861B' onValueChange={(n) => ScoutingDataState.setState({num_climbs: n})} thumbTintColor='#B3861B' />
                             </View>
                         </View>
                         <View style={{minWidth: "40%", maxWidth: "40%"}}>
-                                <Dropdown label={"Balance"} itemColor={"#000000"} baseColor={"#FFFFFF"} data={balances} onChangeText={(b) => this.setState({balance: b})} />
+                                <Dropdown label={"Balance"} itemColor={"#000000"} baseColor={"#FFFFFF"} data={balances} onChangeText={(b) => ScoutingDataState.setState({balance: b})} />
                         </View>
                         <View>
                             <Text style={styles.text}>Match Notes </Text>
                             <View>
-                                <TextInput style={styles.input} onChangeText={(text) => this.setState({notes: text})} />
+                                <TextInput style={styles.input} onChangeText={(text) => ScoutingDataState.setState({notes: text})} />
                             </View>
                         </View>
                     </View>
