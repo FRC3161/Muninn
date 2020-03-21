@@ -78,7 +78,7 @@ function QRScreen({navigation}) {
     return (
         <View style={{flex: 1}}>
             <QR/>
-            <View style={{width: "90%", marginLeft: "5%", marginTop: 40}}>
+            <View style={{width: "90%", marginLeft: "5%", marginTop: 40, marginBottom: 40}}>
                 <Button title="Next Match" color="#B3861B" onPress={() => navigation.reset({index: 0, routes:[{ name: 'Step 1' }]})} />
             </View>
         </View>
