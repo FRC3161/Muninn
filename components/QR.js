@@ -71,8 +71,7 @@ class QR extends Component {
                     <Text style={styles.text}> Please present device to lead scout </Text>
                 </View>
                 <View style={{alignItems: "center", justifyContent: "center", flex: 1}}>
-                    <QRCode style={{flex: 1}} size={300} value={`${ScoutingDataState.state.name}, ${ScoutingDataState.state.match_number}, ${ScoutingDataState.state.team_number}, ${ScoutingDataState.state.alliance}, ${ScoutingDataState.state.preload}, ${ScoutingDataState.state.highPortAuto}, ${ScoutingDataState.state.lowPortAuto}, ${ScoutingDataState.state.missedAuto}, ${ScoutingDataState.state.highPortTele}, ${ScoutingDataState.state.lowPortTele}, ${ScoutingDataState.state.missedTele}, ${ScoutingDataState.state.colourWheelDone}, ${ScoutingDataState.state.colourWheelLanded}, ${ScoutingDataState.state.colourWheelWasRotated}, ${ScoutingDataState.state.climb}, ${ScoutingDataState.state.balance}, ${ScoutingDataState.state.num_climbs}, ${ScoutingDataState.state.notes}`}
-                    />
+                    <QRCode style={{flex: 1}} size={300} value={`${ScoutingDataState.state.name}, ${ScoutingDataState.state.match_number}, ${ScoutingDataState.state.team_number}, ${ScoutingDataState.state.alliance}, ${ScoutingDataState.state.preload}, ${ScoutingDataState.state.highPortAuto}, ${ScoutingDataState.state.lowPortAuto}, ${ScoutingDataState.state.missedAuto}, ${ScoutingDataState.state.highPortTele}, ${ScoutingDataState.state.lowPortTele}, ${ScoutingDataState.state.missedTele}, ${ScoutingDataState.state.colourWheelDone}, ${ScoutingDataState.state.colourWheelLanded}, ${ScoutingDataState.state.colourWheelWasRotated}, ${ScoutingDataState.state.climb}, ${ScoutingDataState.state.balance}, ${ScoutingDataState.state.num_climbs}, ${ScoutingDataState.state.notes}`}/>
                 </View>
             </View>
         )

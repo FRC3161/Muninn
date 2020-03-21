@@ -80,7 +80,7 @@ function QRScreen({navigation}) {
         <View style={{flex: 1}}>
             <QR/>
             <View style={{width: "90%", marginLeft: "5%", marginTop: 40, marginBottom: 40}}>
-                <Button title="Next Match" color="#B3861B" onPress={() => navigation.reset({index: 0, routes:[{ name: 'Step 1' }]})} /> {/* Reset the navigation stack, which also unmounts the components causing the shared state to be reset */}
+                <Button title="Next Match" color="#B3861B" onPress={() => navigation.reset({index: 0, routes:[{ name: 'Step 1' }]})} />
             </View>
         </View>
     )

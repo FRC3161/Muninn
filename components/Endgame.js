@@ -99,7 +99,7 @@ class Endgame extends Component {
                         <View>
                             <Text style={styles.text}>Match Notes </Text>
                             <View>
-                                <TextInput style={styles.input} onChangeText={(text) => ScoutingDataState.setState({notes: text})} />
+                                <TextInput style={styles.input} maxLength={255} onChangeText={(text) => ScoutingDataState.setState({notes: text})} />
                             </View>
                         </View>
                     </View>
