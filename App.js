@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, Button } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer, CommonActions } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { SharedState } from 'react-native-shared-state';
 import Homescreen from "./components/Homescreen";
@@ -74,8 +74,15 @@ function EndgameScreen({navigation}) {
         )
 }
 
-function QRScreen() {
-    return <QR/>;
+function QRScreen({navigation}) {
+    return (
+        <View style={{flex: 1}}>
+            <QR/>
+            <View style={{width: "90%", marginLeft: "5%", marginTop: 40}}>
+                <Button title="Next Match" color="#B3861B" onPress={() => navigation.reset({index: 0, routes:[{ name: 'Step 1' }]})} />
+            </View>
+        </View>
+    )
 }
 
 function App() {
