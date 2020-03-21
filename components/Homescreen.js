@@ -5,7 +5,7 @@ import {ScoutingDataState} from "../App";
 
 const styles = StyleSheet.create({
     title: {
-        //fontFamily: "Roboto",
+        fontFamily: "Rajdhani-Bold",
         fontSize: 42,
         textAlign: "left",
         marginTop: 25,
@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
     },
 
     text: {
-        //fontFamily: "Roboto",
+        fontFamily: "Rajdhani-Medium",
         fontSize: 24, // Todo
         textAlign: "left",
         marginTop: 30,
@@ -65,7 +65,7 @@ class Homescreen extends Component {
                             <Button title="Red" color="#CC1717" onPress={() => ScoutingDataState.setState({alliance: "red"})} />
 
                         </View>
-                        <Button title="Blue" color="#174DCC"onPress={() => ScoutingDataState.setState({alliance: "blue"})} />
+                        <Button title="Blue" color="#174DCC" onPress={() => ScoutingDataState.setState({alliance: "blue"})} />
                     </View>
                 </View>
             </View>

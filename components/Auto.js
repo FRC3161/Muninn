@@ -6,7 +6,7 @@ import {ScoutingDataState} from "../App";
 
 const styles = StyleSheet.create({
     title: {
-        //fontFamily: "Roboto",
+        fontFamily: "Rajdhani-Bold",
         fontSize: 42,
         textAlign: "left",
         marginTop: 25,
@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
     },
 
     text: {
-        //fontFamily: "Roboto",
+        fontFamily: "Rajdhani-Medium",
         fontSize: 24, // Todo
         textAlign: "left",
         marginTop: 30,
@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
     },
 
     slidertext: {
-        fontFamily: "Roboto",
+        fontFamily: "Rajdhani-Medium",
         fontSize: 18, // Todo
         textAlign: "left",
         marginTop: 6,

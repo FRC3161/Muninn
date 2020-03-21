@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { View, Button } from 'react-native';
 import { NavigationContainer, CommonActions } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import * as Font from 'expo-font';
 import { SharedState } from 'react-native-shared-state';
 import Homescreen from "./components/Homescreen";
 import Auto from "./components/Auto";
@@ -79,24 +80,44 @@ function QRScreen({navigation}) {
         <View style={{flex: 1}}>
             <QR/>
             <View style={{width: "90%", marginLeft: "5%", marginTop: 40, marginBottom: 40}}>
-                <Button title="Next Match" color="#B3861B" onPress={() => navigation.reset({index: 0, routes:[{ name: 'Step 1' }]})} />
+                <Button title="Next Match" color="#B3861B" onPress={() => navigation.reset({index: 0, routes:[{ name: 'Step 1' }]})} /> {/* Reset the navigation stack, which also unmounts the components causing the shared state to be reset */}
             </View>
         </View>
     )
 }
 
-function App() {
-  return (
-    <NavigationContainer theme={MyTheme}>
-      <Stack.Navigator>
-        <Stack.Screen name="Step 1" component={Home}/>
-        <Stack.Screen name="Step 2" component={AutoScreen}/>
-        <Stack.Screen name="Step 3" component={TeleopScreen}/>
-        <Stack.Screen name="Step 4" component={EndgameScreen}/>
-        <Stack.Screen name="Step 5" component={QRScreen}/>
-      </Stack.Navigator>
-    </NavigationContainer>
-  )
+class App extends Component {
+
+    state = { fontsLoaded: false };
+
+    async componentDidMount() {
+        await Font.loadAsync({
+            "Rajdhani-Medium": require("./assets/fonts/Rajdhani-Medium.ttf"),
+            "Rajdhani-Bold": require("./assets/fonts/Rajdhani-Bold.ttf")
+        });
+
+        this.setState({fontsLoaded: true})
+    }
+
+    render() {
+
+        const { fontsLoaded } = this.state;
+        if(fontsLoaded) {
+            return (
+                <NavigationContainer theme={MyTheme}>
+                    <Stack.Navigator>
+                        <Stack.Screen name="Step 1" component={Home}/>
+                        <Stack.Screen name="Step 2" component={AutoScreen}/>
+                        <Stack.Screen name="Step 3" component={TeleopScreen}/>
+                        <Stack.Screen name="Step 4" component={EndgameScreen}/>
+                        <Stack.Screen name="Step 5" component={QRScreen}/>
+                    </Stack.Navigator>
+                </NavigationContainer>
+            )
+        } else {
+            return null;
+        }
+    }
 }
 
 export default App;
