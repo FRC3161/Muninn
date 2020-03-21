@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
 class Teleop extends Component {
 
     componentDidMount() {
-        ScoutingDataState.register(this, ["highPortTele", "lowPortTele", "missedTele", "colourWheelDone", "colourWheelLanded", "colourWheelWasRotated"]);
+        ScoutingDataState.register(this, ["highPortTele", "lowPortTele", "missedTele", "colourWheelDone", "colourWheelLanded", "colourWheelWasRotated", "attitude"]);
     }
 
     componentWillUnmount() {
@@ -78,7 +78,7 @@ class Teleop extends Component {
                         <View style={{paddingLeft: "5%"}}>
                             <Text style={styles.text}> Robot Attitude </Text>
                             <View style={{maxWidth: "100%", marginLeft: "5%"}}>
-                                <Dropdown label={"Robot Attitude"} itemColor={"#000000"} baseColor={"#FFFFFF"} data={attitudes} />
+                                <Dropdown label={"Robot Attitude"} onChangeText={(a) => ScoutingDataState.setState({attitude: a})} itemColor={"#000000"} baseColor={"#FFFFFF"} data={attitudes} />
                             </View>
                         </View>
                     </View>
