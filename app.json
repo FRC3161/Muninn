@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Team 3161 Scouting App (Temp Name)",
-    "slug": "Scouting-App",
+    "name": "Muninn"
+    "slug": "Muninn",
     "privacy": "public",
     "sdkVersion": "36.0.0",
     "platforms": [
@@ -27,7 +27,7 @@
       "supportsTablet": true
     },
     "android": {
-      "package": "ca.team3161.scoutingapp",
+      "package": "ca.team3161.muninn",
       "versionCode": 1
     }
   }
