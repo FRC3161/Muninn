@@ -14,7 +14,7 @@ import QR from "./components/QR.js";
 const Stack = createStackNavigator();
 
 export const ScoutingDataState = new SharedState({
-    name: "", match_number: 0, team_number: 0, alliance: "", preload: 0, highPortAuto: 0, lowPortAuto: 0, missedAuto: 0, highPortTele: 0, lowPortTele: 0,
+    name: "", match_number: 0, match_type: "", team_number: 0, alliance: "", preload: 0, highPortAuto: 0, lowPortAuto: 0, missedAuto: 0, highPortTele: 0, lowPortTele: 0,
     missedTele: 0, attitude: "", colourWheelDone: false, colourWheelLanded: false, colourWheelWasRotated: false, climb: "", balance: "", num_climbs: 0, notes: ""
 });
 
