@@ -6,10 +6,14 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-         <Button variant={"primary"}>Test</Button>
+         <Button variant={"primary"} size={"lg"} onClick={testPopup}>Test</Button>
       </header>
     </div>
   );
+}
+
+function testPopup(){
+    window.alert("test");
 }
 
 export default App;
