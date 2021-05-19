@@ -21,14 +21,14 @@ function ScouterInfoReducer(state = initialState, action) {
         case SCOUTER_NAME_AND_MATCH_INFO:
             return {
                 ...state,
-                scouterName: state.scouterName + action.payload.name,
+                scouterName: action.payload.name,
                 matchInfo: {
-                    matchNumber: state.matchInfo.matchNumber + action.payload.matchInfo.matchNumber,
-                    matchType: state.matchInfo.matchType + action.payload.matchInfo.matchType
+                    matchNumber: action.payload.matchInfo.matchNumber,
+                    matchType: action.payload.matchInfo.matchType
                 },
                 teamInfo: {
-                    teamNumber: state.teamInfo.teamNumber + action.payload.teamInfo.teamNumber,
-                    alliance: state.teamInfo.alliance + action.payload.teamInfo.alliance
+                    teamNumber: action.payload.teamInfo.teamNumber,
+                    alliance: action.payload.teamInfo.alliance
                 },
                 page: state.page + 1
             }

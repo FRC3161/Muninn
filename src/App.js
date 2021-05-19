@@ -9,6 +9,7 @@ import './reactstrap.css';
 
 import ScouterInfo from "./InfiniteRecharge/ScouterInfo";
 import Auto from "./InfiniteRecharge/Auto";
+import Teleop from "./InfiniteRecharge/Teleop";
 import { updateScouterAndTeamInfo } from "./InfiniteRecharge/Redux/ScouterInfoActions";
 import { updateAutoInfo } from "./InfiniteRecharge/Redux/AutoAndTelop/AutoAndTeleopActions";
 
@@ -40,6 +41,7 @@ function App(props) {
                         highPortAuto={props.highPortAuto}
                         lowPortAuto={props.lowPortAuto}
                         missedAuto={props.missedAuto}
+
                         updateAutoInfo={props.updateAutoInfo}
 
                         page2={props.page2}
@@ -61,11 +63,11 @@ const mapStateToProps = state => {
         alliance: state.scouterAndTeamInfo.teamInfo.alliance,
         page: state.scouterAndTeamInfo.page,
 
-        /* preload: state.autoAndTeleopInfo.preload,
+        preload: state.autoAndTeleopInfo.preload,
         highPortAuto: state.autoAndTeleopInfo.highPortAuto,
         lowPortAuto: state.autoAndTeleopInfo.lowPortAuto,
         missedAuto: state.autoAndTeleopInfo.missedAuto,
-        page2: state.autoAndTeleopInfo.page */
+        page2: state.autoAndTeleopInfo.page 
     }
 }
 
@@ -73,7 +75,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         updateScouterAndTeamInfo: (name, matchNumber, matchType, teamNumber, alliance) => dispatch(updateScouterAndTeamInfo(name, matchNumber, matchType, teamNumber, alliance)),
-        // TODO: updateAutoInfo: (preload, highPortAuto, lowPortAuto, missedAuto) => dispatch(updateAutoInfo(preload, highPortAuto, lowPortAuto, missedAuto))
+        updateAutoInfo: (preload, highPortAuto, lowPortAuto, missedAuto) => dispatch(updateAutoInfo(preload, highPortAuto, lowPortAuto, missedAuto))
     }
 }
 

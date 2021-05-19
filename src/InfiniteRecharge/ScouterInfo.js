@@ -45,7 +45,7 @@ function ScouterInfo(props) {
                                 <Form.Control type="text" placeholder="'Blue' or 'Red'" onChange={e => setAlliance(e.target.value)}></Form.Control>
                             </Form.Group>
                     </Form.Row>
-                    <Button varient="primary" onClick={() => props.updateScouterAndTeamInfo(name, matchNumber, matchType, teamNumber, alliance)}>Next</Button>  {/* TODO: May have to find an alternative to updating the Redux state. */}
+                    <Button varient="primary" className="btn-gold" onClick={() => props.updateScouterAndTeamInfo(name, matchNumber, matchType, teamNumber, alliance)}>Next</Button>  {/* TODO: May have to find an alternative to updating the Redux state. */}
                 </Form>
             </div>
         )
