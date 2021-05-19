@@ -1,0 +1,5 @@
+
+export const SCOUTER_NAME_AND_MATCH_INFO = "SCOUTER_NAME_AND_MATCH_INFO";
+
+export const AUTO_INFO = "AUTO_INFO";
+export const TELEOP_INFO = "TELEOP_INFO";
