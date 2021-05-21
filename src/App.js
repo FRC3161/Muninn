@@ -11,7 +11,7 @@ import ScouterInfo from "./InfiniteRecharge/ScouterInfo";
 import Auto from "./InfiniteRecharge/Auto";
 import Teleop from "./InfiniteRecharge/Teleop";
 import { updateScouterAndTeamInfo } from "./InfiniteRecharge/Redux/ScouterInfoActions";
-import { updateAutoInfo } from "./InfiniteRecharge/Redux/AutoAndTelop/AutoAndTeleopActions";
+import { updateAutoInfo } from "./InfiniteRecharge/Redux/AutoAndTelop/AutoActions";
 
 import './App.css';
 
@@ -20,7 +20,7 @@ function App(props) {
   return (
       <div className="App">
         <header className="App-header">
-            <Tabs defaultActiveKey={"info"} id={"data-entry-tabs"}>
+            <Tabs defaultActiveKey={"info"} id={"data-entry-tabs"} >
                 <Tab eventKey={"info"} title={"Scouter and Team Info"}>
                     <ScouterInfo
                         scouterName={props.scouterName}
@@ -47,6 +47,14 @@ function App(props) {
                         page2={props.page2}
                     />
                 </Tab>
+
+                <Tab eventKey={"teleop"} title={"Teleop"}>
+                    <Teleop 
+                        highPortTeleop={props.highPortTeleop}
+
+                        updateTeleopInfo={props.updateTeleopInfo}
+                    />
+                </Tab>
             </Tabs>
         </header>
       </div>
@@ -67,7 +75,9 @@ const mapStateToProps = state => {
         highPortAuto: state.autoAndTeleopInfo.highPortAuto,
         lowPortAuto: state.autoAndTeleopInfo.lowPortAuto,
         missedAuto: state.autoAndTeleopInfo.missedAuto,
-        page2: state.autoAndTeleopInfo.page 
+        page2: state.autoAndTeleopInfo.page,
+        
+        highPortTeleop: state.autoAndTeleopInfo.highPortTeleop
     }
 }
 

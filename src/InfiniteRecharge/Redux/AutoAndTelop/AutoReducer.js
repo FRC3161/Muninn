@@ -7,10 +7,12 @@ const autoAndTeleopState = {
     highPortAuto: "",
     lowPortAuto: "",
     missedAuto: null,
-    page: 0
+    page: 0,
+
+    highPortTeleop: 0
 }
 
-function AutoAndTeleopReducer(state = autoAndTeleopState, action) {
+function AutoReducer(state = autoAndTeleopState, action) {
     switch(action.type) {
         case AUTO_INFO:
             return {
@@ -28,4 +30,4 @@ function AutoAndTeleopReducer(state = autoAndTeleopState, action) {
 }
 
 
-export default AutoAndTeleopReducer;
+export default AutoReducer;

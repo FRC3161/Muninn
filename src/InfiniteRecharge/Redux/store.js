@@ -1,11 +1,11 @@
 import { combineReducers, createStore } from "redux";
-import AutoAndTeleopReducer from "./AutoAndTelop/AutoAndTeleopReducer";
+import AutoReducer from "./AutoAndTelop/AutoReducer";
 import ScouterInfoReducer from "./ScouterInfoReducer";
 
 
 const rootReducer = combineReducers({
     scouterAndTeamInfo: ScouterInfoReducer,
-    autoAndTeleopInfo: AutoAndTeleopReducer
+    autoAndTeleopInfo: AutoReducer
 })
 
 const store = createStore(rootReducer);
