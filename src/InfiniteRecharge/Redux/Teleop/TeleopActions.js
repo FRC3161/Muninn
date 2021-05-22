@@ -15,7 +15,7 @@ export function updateTeleopLowPort(lowPort = 0) {
     }
 }
 
-export function updateTeleopMiddedStatus(missedTeleop = null) {
+export function updateTeleopMissedStatus(missedTeleop = null) {
     return {
         type: TELEOP_MISSED,
         payload: missedTeleop

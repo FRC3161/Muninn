@@ -28,6 +28,9 @@ function TeleopReducer(state = initialTeleopState, action) {
                 ...state,
                 missed: action.payload
             }
+
+        default:
+            return state;
     }
 }
 

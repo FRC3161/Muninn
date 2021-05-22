@@ -14,6 +14,7 @@ import { updateScouterAndTeamInfo } from "./InfiniteRecharge/Redux/ScouterInfoAc
 import { updateAutoInfo } from "./InfiniteRecharge/Redux/AutoAndTelop/AutoActions";
 
 import './App.css';
+import { updateTeleopHighPort, updateTeleopLowPort, updateTeleopMissedStatus } from "./InfiniteRecharge/Redux/Teleop/TeleopActions";
 
 
 function App(props) {
@@ -50,9 +51,13 @@ function App(props) {
 
                 <Tab eventKey={"teleop"} title={"Teleop"}>
                     <Teleop 
-                        highPortTeleop={props.highPortTeleop}
+                        highPort={props.highPort}
+                        lowPort={props.lowPort}
+                        missedTeleop={props.missedTeleop}
 
-                        updateTeleopInfo={props.updateTeleopInfo}
+                        updateTeleopHighPort={props.updateTeleopHighPort}
+                        updateTeleopLowPort={props.updateTeleopLowPort}
+                        updateTeleopMissedStatus={props.updateTeleopMissedStatus}
                     />
                 </Tab>
             </Tabs>
@@ -77,7 +82,9 @@ const mapStateToProps = state => {
         missedAuto: state.autoAndTeleopInfo.missedAuto,
         page2: state.autoAndTeleopInfo.page,
         
-        highPortTeleop: state.autoAndTeleopInfo.highPortTeleop
+        highPort: state.teleopInfo.highPort,
+        lowPort: state.teleopInfo.lowPort,
+        missedTeleop: state.teleopInfo.missed
     }
 }
 
@@ -85,7 +92,11 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         updateScouterAndTeamInfo: (name, matchNumber, matchType, teamNumber, alliance) => dispatch(updateScouterAndTeamInfo(name, matchNumber, matchType, teamNumber, alliance)),
-        updateAutoInfo: (preload, highPortAuto, lowPortAuto, missedAuto) => dispatch(updateAutoInfo(preload, highPortAuto, lowPortAuto, missedAuto))
+        updateAutoInfo: (preload, highPortAuto, lowPortAuto, missedAuto) => dispatch(updateAutoInfo(preload, highPortAuto, lowPortAuto, missedAuto)),
+
+        updateTeleopHighPort: (highPort) => dispatch(updateTeleopHighPort(highPort)),
+        updateTeleopLowPort: (lowPort) => dispatch(updateTeleopLowPort(lowPort)),
+        updateTeleopMissedStatus: (missedTeleop) => dispatch(updateTeleopMissedStatus(missedTeleop))
     }
 }
 
