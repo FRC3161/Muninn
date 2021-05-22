@@ -1,29 +1,40 @@
-import { AUTO_INFO } from "../Types";
+import { PRELOAD, AUTO_HIGH_PORT, AUTO_LOW_PORT, AUTO_MISSED } from "../Types";
 
 
 // Auto and Teleop state.
-const autoAndTeleopState = {
+const initialAutoState = {
     preload: 0,
-    highPortAuto: "",
-    lowPortAuto: "",
-    missedAuto: null,
-    page: 0,
-
-    highPortTeleop: 0
+    highPort: "",
+    lowPort: "",
+    missed: null
 }
 
-function AutoReducer(state = autoAndTeleopState, action) {
+function AutoReducer(state = initialAutoState, action) {
     switch(action.type) {
-        case AUTO_INFO:
+        case PRELOAD:
             return {
                 ...state,
-                preload: action.payload.preload,
-                highPortAuto: action.payload.highPortAuto,
-                lowPortAuto: action.payload.lowPortAuto,
-                missedAuto: action.payload.missedAuto,
-                page: state.page + 1
+                preload: action.payload
             }
-            
+        
+        case AUTO_HIGH_PORT:
+            return {
+                ...state,
+                highPort: action.payload
+            }
+
+        case AUTO_LOW_PORT:
+            return {
+                ...state,
+                lowPort: action.payload
+            }
+        
+        case AUTO_MISSED:
+            return {
+                ...state,
+                missed: action.payload
+            }
+
         default:
             return state;
     }

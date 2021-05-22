@@ -1,36 +1,46 @@
-import { SCOUTER_NAME_AND_MATCH_INFO } from "./Types";
+import { SCOUTER_NAME, MATCH_NUMBER, MATCH_TYPE, TEAM_NUMBER, ALLIANCE } from "./Types";
 
 
 // State.
-const initialState = {
+const initialScouterAndTeamState = {
     scouterName: "",
-    matchInfo: {
-        matchNumber: "",
-        matchType: ""
-    },
-    teamInfo: {
-        teamNumber: "",
-        alliance: ""
-    },
-    page: 1
+    matchNumber: "",
+    matchType: "",
+    teamNumber: "",
+    alliance: ""
 }
 
 
-function ScouterInfoReducer(state = initialState, action) {
+function ScouterInfoReducer(state = initialScouterAndTeamState, action) {
     switch(action.type) {
-        case SCOUTER_NAME_AND_MATCH_INFO:
+        case SCOUTER_NAME:
             return {
                 ...state,
-                scouterName: action.payload.name,
-                matchInfo: {
-                    matchNumber: action.payload.matchInfo.matchNumber,
-                    matchType: action.payload.matchInfo.matchType
-                },
-                teamInfo: {
-                    teamNumber: action.payload.teamInfo.teamNumber,
-                    alliance: action.payload.teamInfo.alliance
-                },
-                page: state.page + 1
+                scouterName: action.payload
+            }
+
+        case MATCH_NUMBER:
+            return {
+                ...state,
+                matchNumber: action.payload
+            }
+
+        case MATCH_TYPE:
+            return {
+                ...state,
+                matchType: action.payload
+            }
+
+        case TEAM_NUMBER:
+            return {
+                ...state,
+                teamNumber: action.payload
+            }
+
+        case ALLIANCE:
+            return {
+                ...state,
+                alliance: action.payload
             }
 
         default:

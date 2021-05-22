@@ -6,7 +6,7 @@ import TeleopReducer from "./Teleop/TeleopReducer";
 
 const rootReducer = combineReducers({
     scouterAndTeamInfo: ScouterInfoReducer,
-    autoAndTeleopInfo: AutoReducer,
+    autoInfo: AutoReducer,
     teleopInfo: TeleopReducer
 })
 
