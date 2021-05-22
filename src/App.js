@@ -10,7 +10,7 @@ import './reactstrap.css';
 import ScouterInfo from "./InfiniteRecharge/ScouterInfo";
 import Auto from "./InfiniteRecharge/Auto";
 import Teleop from "./InfiniteRecharge/Teleop";
-import { updateMatchInfo } from "./InfiniteRecharge/Redux/Teleop/TeleopActions";
+import { updateMatchInfo } from "./InfiniteRecharge/Redux/ActionsTypesAndStore/ActionsTemplate";
 
 import './App.css';
 

@@ -1,6 +1,6 @@
 import React from "react";
 import { Form, Container, Row, Col } from "react-bootstrap";
-import { AUTO_HIGH_PORT, AUTO_LOW_PORT, AUTO_MISSED, PRELOAD } from "./Redux/Types";
+import { AUTO_HIGH_PORT, AUTO_LOW_PORT, AUTO_MISSED, PRELOAD } from "./Redux/ActionsTypesAndStore/Types";
 
 
 function Auto(props) {

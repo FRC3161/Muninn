@@ -4,7 +4,7 @@ import Form from 'react-bootstrap/Form';
 import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
 import '../reactstrap.css';
-import { ALLIANCE, MATCH_NUMBER, MATCH_TYPE, SCOUTER_NAME, TEAM_NUMBER } from './Redux/Types';
+import { ALLIANCE, MATCH_NUMBER, MATCH_TYPE, SCOUTER_NAME, TEAM_NUMBER } from './Redux/ActionsTypesAndStore/Types';
 
 
 function ScouterInfo(props) {

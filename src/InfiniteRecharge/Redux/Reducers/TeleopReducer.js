@@ -1,4 +1,4 @@
-import { TELEOP_HIGH_PORT, TELEOP_LOW_PORT, TELEOP_MISSED } from "../Types";
+import { TELEOP_HIGH_PORT, TELEOP_LOW_PORT, TELEOP_MISSED } from "../ActionsTypesAndStore/Types";
 
 
 // Initial Teleop state.

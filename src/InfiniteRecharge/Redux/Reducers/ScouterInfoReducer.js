@@ -1,4 +1,4 @@
-import { SCOUTER_NAME, MATCH_NUMBER, MATCH_TYPE, TEAM_NUMBER, ALLIANCE } from "./Types";
+import { SCOUTER_NAME, MATCH_NUMBER, MATCH_TYPE, TEAM_NUMBER, ALLIANCE } from "../ActionsTypesAndStore/Types";
 
 
 // State.

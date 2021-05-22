@@ -1,6 +1,6 @@
 import React from "react";
 import { Form } from "react-bootstrap";
-import { TELEOP_HIGH_PORT, TELEOP_LOW_PORT, TELEOP_MISSED } from "./Redux/Types";
+import { TELEOP_HIGH_PORT, TELEOP_LOW_PORT, TELEOP_MISSED } from "./Redux/ActionsTypesAndStore/Types";
 
 
 function Teleop(props) {

@@ -1,7 +1,7 @@
 import { combineReducers, createStore } from "redux";
-import AutoReducer from "./AutoAndTelop/AutoReducer";
-import ScouterInfoReducer from "./ScouterInfoReducer";
-import TeleopReducer from "./Teleop/TeleopReducer";
+import AutoReducer from "../Reducers/AutoReducer";
+import ScouterInfoReducer from "../Reducers/ScouterInfoReducer";
+import TeleopReducer from "../Reducers/TeleopReducer";
 
 
 const rootReducer = combineReducers({

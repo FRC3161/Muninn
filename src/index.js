@@ -6,7 +6,7 @@ import App from './App';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from "react-redux";
-import store from './InfiniteRecharge/Redux/store';
+import store from './InfiniteRecharge/Redux/ActionsTypesAndStore/store';
 
 ReactDOM.render(
   <Provider store={store}>
