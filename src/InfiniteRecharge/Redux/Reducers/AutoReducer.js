@@ -4,9 +4,9 @@ import { PRELOAD, AUTO_HIGH_PORT, AUTO_LOW_PORT, AUTO_MISSED } from "../ActionsT
 // Auto and Teleop state.
 const initialAutoState = {
     preload: 0,
-    highPort: "",
-    lowPort: "",
-    missed: null
+    highPort: 0,
+    lowPort: 0,
+    missed: 0
 }
 
 function AutoReducer(state = initialAutoState, action) {

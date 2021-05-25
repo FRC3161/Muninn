@@ -11,56 +11,12 @@ function Auto(props) {
                     <Row>
                         <Col>
                             <Form.Label>Pre-loaded Power Cells: {props.preload}</Form.Label>
-                            <Form.Check 
-                                type={"radio"}
-                                label="0"
-                                value={0}
-                                name="preloadedPowerCells"
-                                onChange={e => props.updateAutoInfo(PRELOAD, e.target.value)}
-                            />
-
-                            <Form.Check 
-                                type={"radio"}
-                                label="1"
-                                value={1}
-                                name="preloadedPowerCells"
-                                onChange={e => props.updateAutoInfo(PRELOAD, e.target.value)}
-                            />
-
-                            <Form.Check 
-                                type={"radio"}
-                                label="2"
-                                value={2}
-                                name="preloadedPowerCells"
-                                onChange={e => props.updateAutoInfo(PRELOAD, e.target.value)}
-                            />
-
-                            <Form.Check 
-                                type={"radio"}
-                                label="3"
-                                value={3}
-                                name="preloadedPowerCells"
-                                onChange={e => props.updateAutoInfo(PRELOAD, e.target.value)}
-                            />
+                            <Form.Control type="number" min="0" max="3" onChange={e => props.updateAutoInfo(PRELOAD, e.target.value)}></Form.Control>
                         </Col>
 
                         <Col>
-                            <Form.Label>{props.missed}</Form.Label>
-                            <Form.Check 
-                                type="radio"
-                                label="Missed the Autonomous Period"
-                                value={true}
-                                name="activeAuto"
-                                onChange={e => props.updateAutoInfo(AUTO_MISSED, e.target.value)}
-                            />
-
-                            <Form.Check 
-                                type="radio"
-                                label="Active During the Autonomous Period"
-                                value={false}
-                                name="activeAuto"
-                                onChange={e => props.updateAutoInfo(AUTO_MISSED, e.target.value)}
-                            />
+                            <Form.Label>Low and High Ports Missed: {props.missed}</Form.Label>
+                            <Form.Control type="number" min="0" max="50" onChange={e => props.updateAutoInfo(AUTO_MISSED, e.target.value)}></Form.Control>
                         </Col>
                     </Row>
 

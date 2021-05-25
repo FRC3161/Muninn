@@ -10,6 +10,7 @@ import './reactstrap.css';
 import ScouterInfo from "./InfiniteRecharge/ScouterInfo";
 import Auto from "./InfiniteRecharge/Auto";
 import Teleop from "./InfiniteRecharge/Teleop";
+import Endgame from "./InfiniteRecharge/Endgame";
 import { updateMatchInfo } from "./InfiniteRecharge/Redux/ActionsTypesAndStore/ActionsTemplate";
 
 import './App.css';
@@ -32,7 +33,7 @@ function App(props) {
                     />
                 </Tab>
 
-                <Tab eventKey={"auto"} title={"Autonomous"}>
+                <Tab eventKey={"auto"} title={"Autonomous Period"}>
                     <Auto 
                         preload={props.preload}
                         highPort={props.highPortAuto}
@@ -43,13 +44,28 @@ function App(props) {
                     />
                 </Tab>
 
-                <Tab eventKey={"teleop"} title={"Teleop"}>
+                <Tab eventKey={"teleop"} title={"Teleoperating Period"}>
                     <Teleop 
+                        attitude={props.attitude}
                         highPort={props.highPortTeleop}
                         lowPort={props.lowPortTeleop}
-                        missedTeleop={props.missedTeleop}
+                        missed={props.missedTeleop}
+                        colourWheelDone={props.colourWheelDone}
+                        colourWheelLanded={props.colourWheelLanded}
+                        colourWheelWasRotated={props.colourWheelWasRotated}
 
                         updateTeleopInfo={props.updateMatchInfo}
+                    />
+                </Tab>
+
+                <Tab eventKey={"endgame"} title={"Endgame"}>
+                    <Endgame 
+                        climb={props.climb}
+                        balanced={props.balanced}
+                        numberOfClimbs={props.numberOfClimbs}
+                        matchNotes={props.matchNotes}
+
+                        updateEndgameInfo={props.updateMatchInfo}
                     />
                 </Tab>
             </Tabs>
@@ -72,9 +88,18 @@ const mapStateToProps = state => {
         lowPortAuto: state.autoInfo.lowPort,
         missedAuto: state.autoInfo.missed,
         
+        attitude: state.teleopInfo.attitude,
         highPortTeleop: state.teleopInfo.highPort,
         lowPortTeleop: state.teleopInfo.lowPort,
-        missedTeleop: state.teleopInfo.missed
+        missedTeleop: state.teleopInfo.missed,
+        colourWheelDone: state.teleopInfo.colourWheelDone,
+        colourWheelLanded: state.teleopInfo.colourWheelLanded,
+        colourWheelWasRotated: state.teleopInfo.colourWheelWasRotated,
+
+        climb: state.endgameInfo.climb,
+        balanced: state.endgameInfo.balanced,
+        numberOfClimbs: state.endgameInfo.numberOfClimbs,
+        matchNotes: state.endgameInfo.matchNotes
     }
 }
 

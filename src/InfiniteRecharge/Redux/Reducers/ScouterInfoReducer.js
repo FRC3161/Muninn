@@ -4,9 +4,9 @@ import { SCOUTER_NAME, MATCH_NUMBER, MATCH_TYPE, TEAM_NUMBER, ALLIANCE } from ".
 // State.
 const initialScouterAndTeamState = {
     scouterName: "",
-    matchNumber: "",
+    matchNumber: 0,
     matchType: "",
-    teamNumber: "",
+    teamNumber: 0,
     alliance: ""
 }
 
